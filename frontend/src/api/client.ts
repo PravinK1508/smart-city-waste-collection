@@ -14,7 +14,14 @@ import {
   User,
 } from '../types';
 
-const API_BASE = '/api';
+export const API_SERVER_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const API_BASE = `${API_SERVER_URL}/api`;
+
+export function getPhotoUrl(url?: string): string {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  return API_SERVER_URL ? `${API_SERVER_URL}${url}` : url;
+}
 
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   const response = await fetch(url, {
