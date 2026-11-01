@@ -1,0 +1,40 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+**/application.properties
+!**/application.properties.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build Outputs & Generated Binaries
+dist/
+**/dist/
+target/
+**/target/
+*.class
+*.jar
+*.war
+
+# Runtime Uploaded Files & User Media
+uploads/
+**/uploads/
+
+# Application Logs & Diagnostics
+*.log
+stderr
+stdout
+
+# IDE & Editor Configuration
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Operating System Metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db

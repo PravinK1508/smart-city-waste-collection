@@ -1,0 +1,21 @@
+======================================================================
+HOW TO START THE WEBSITE
+======================================================================
+
+Double-click any of these files inside this folder:
+  1. run.bat
+  2. start.bat
+  3. START_WEBSITE.bat
+
+WHAT THIS DOES AUTOMATICALLY:
+  1. Verifies/Starts MySQL Database (Port 3306)
+  2. Clears any stuck backend or frontend processes
+  3. Starts the Spring Boot Backend (Port 8080)
+  4. Starts the React Vite Frontend (Port 5173)
+  5. Automatically launches http://localhost:5173 in your web browser!
+
+LOGIN CREDENTIALS:
+  - Municipal Admin:   admin@smartcity.gov  /  Admin@123
+  - Municipal Driver:  driver@smartcity.gov /  Driver@123
+  - Citizen Reporter:  pravin@gmail.com     /  Citizen@123
+======================================================================

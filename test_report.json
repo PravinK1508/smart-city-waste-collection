@@ -1,0 +1,13 @@
+{
+  "citizenEmail": "pravin@gmail.com",
+  "citizenName": "Pravin K",
+  "citizenPhone": "9876543210",
+  "wasteCategory": "Plastic",
+  "description": "Bulk recyclable plastic bottles and packaging accumulated near Bus Stand roadside",
+  "address": "Near New Bus Stand, Perundurai",
+  "areaName": "Perundurai Central",
+  "latitude": 11.2750,
+  "longitude": 77.5840,
+  "estimatedQuantityKg": 450.00,
+  "photoUrl": "/uploads/reports/sample.jpg"
+}

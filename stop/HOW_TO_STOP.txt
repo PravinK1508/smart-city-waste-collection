@@ -1,0 +1,14 @@
+======================================================================
+HOW TO STOP THE WEBSITE
+======================================================================
+
+Double-click any of these files inside this folder:
+  1. run.bat
+  2. stop.bat
+  3. STOP_WEBSITE.bat
+
+WHAT THIS DOES:
+  - Terminates the Spring Boot Backend (Port 8080)
+  - Terminates the React Vite Frontend (Port 5173)
+  - Cleans up and frees all website ports safely.
+======================================================================
