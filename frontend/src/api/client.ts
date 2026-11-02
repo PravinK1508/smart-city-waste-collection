@@ -14,8 +14,9 @@ import {
   User,
 } from '../types';
 
-export const API_SERVER_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
-const API_BASE = `${API_SERVER_URL}/api`;
+const rawBase = (import.meta.env.VITE_API_BASE_URL || '').trim().replace(/\/$/, '');
+export const API_SERVER_URL = rawBase.endsWith('/api') ? rawBase.slice(0, -4) : rawBase;
+const API_BASE = API_SERVER_URL ? `${API_SERVER_URL}/api` : '/api';
 
 export function getPhotoUrl(url?: string): string {
   if (!url) return '';
