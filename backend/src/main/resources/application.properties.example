@@ -4,10 +4,10 @@ server.port=${PORT:8080}
 spring.application.name=SmartCityWasteManagement
 
 # MySQL Database Configuration
-# Supports standard cloud providers (Render, Railway, TiDB, Aiven, AWS RDS)
-spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:smart_waste_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8}
-spring.datasource.username=${SPRING_DATASOURCE_USERNAME:${DB_USERNAME:root}}
-spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:}}
+# Supports Railway, Render, TiDB, Aiven, and Localhost automatically
+spring.datasource.url=${SPRING_DATASOURCE_URL:jdbc:mysql://${MYSQLHOST:${DB_HOST:localhost}}:${MYSQLPORT:${DB_PORT:3306}}/${MYSQLDATABASE:${DB_NAME:smart_waste_db}}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME:${MYSQLUSER:${DB_USERNAME:root}}}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD:${MYSQLPASSWORD:${DB_PASSWORD:}}}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # JPA / Hibernate Configuration
