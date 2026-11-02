@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${cors.allowed-origins:http://localhost:5173,http://localhost:5174,http://localhost:3000,http://127.0.0.1:5173,https://*.vercel.app}")
+    @Value("${cors.allowed-origins:http://localhost:5173,http://localhost:5174,http://localhost:3000,http://127.0.0.1:5173,https://*.vercel.app,https://violet-turkeys-live.loca.lt,http://violet-turkeys-live.loca.lt,https://*.loca.lt}")
     private String[] allowedOrigins;
 
     @Value("${file.upload-dir:./uploads/reports}")
