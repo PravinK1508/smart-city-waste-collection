@@ -77,10 +77,37 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onPlanReport }) 
         zoom: 12,
       });
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
+      // Base tile layers (100% free, no API key required, unblocked over devtunnels/proxies)
+      const osmStandard = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 20,
+      });
+
+      const esriStreets = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ',
         maxZoom: 19,
-      }).addTo(map);
+      });
+
+      const esriSatellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP',
+        maxZoom: 19,
+      });
+
+      const openTopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a>',
+        maxZoom: 17,
+      });
+
+      // Default active base layer: Standard OpenStreetMap (unwatermarked, keyless)
+      osmStandard.addTo(map);
+
+      // Map layer switcher
+      L.control.layers({
+        'OpenStreetMap (Standard)': osmStandard,
+        'Esri World Streets': esriStreets,
+        'Satellite Imagery': esriSatellite,
+        'Topographic Map': openTopo,
+      }, undefined, { position: 'topright' }).addTo(map);
 
       const layerGroup = L.layerGroup().addTo(map);
       layerGroupRef.current = layerGroup;
